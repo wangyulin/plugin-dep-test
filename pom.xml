@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>org.example</groupId>
+  <artifactId>plugin-dep-test</artifactId>
+  <version>1.0-SNAPSHOT</version>
+
+  <name>plugin-dep-test</name>
+  <!-- FIXME change it to the project's website -->
+  <url>http://www.example.com</url>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.target>1.8</maven.compiler.target>
+  </properties>
+
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.11</version>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>com.wyl.maven</groupId>
+        <artifactId>yuhao-maven-plugin</artifactId>
+        <version>1.0-SNAPSHOT</version>
+        <executions>
+          <execution>
+            <id>id_hello</id>
+            <phase>clean</phase>
+            <goals>
+              <goal>hello</goal>
+            </goals>
+          </execution>
+          <execution>
+            <id>id_daily</id>
+            <phase>process-sources</phase>
+            <goals>
+              <goal>daily</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <env>pre</env>
+          <sourceDirectory>${project.build.sourceDirectory}</sourceDirectory>
+          <enumsPkg>org.example.enums</enumsPkg>
+          <name>WangYulin</name>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+</project>
